@@ -13,27 +13,14 @@ import javax.validation.constraints.NotEmpty;
 public class User {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "name")
-    @NotEmpty(message = "Поле имя должно быть заполнено")
-    @Size(min = 2, max = 35, message = "Длина имени должна быть больше 2 и меньше 35 символов")
     private String name;
 
-    @Column(name = "surname")
-    @NotEmpty(message = "Поле фамилия должно быть заполнено")
-    @Size(min = 2, max = 35, message = "Длина фамилии должна быть больше 2 и меньше 35 символов")
     private String surname;
 
-    @Column(name = "age")
-    @Min(value = 1, message = "Возраст не может быть меньше или равняться нулю")
     private byte age;
 
-    @Column(name = "email")
-    @NotEmpty (message = "Поле Email должно быть заполнено")
-    @Email(message = "Введен некорректный адрес электронной почты")
     private String email;
 
     public User() { }

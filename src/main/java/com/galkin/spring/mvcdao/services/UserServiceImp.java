@@ -5,22 +5,22 @@ import com.galkin.spring.mvcdao.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.util.List;
 
-@Component
+@Service
 public class UserServiceImp implements UserService {
 
     @Autowired
-    @Qualifier("userDAOImp")
     private UserDAO userDAO;
-    @Transactional
+    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
-    @Transactional
+    @Transactional(readOnly = true)
     public User getUserById(long id) {
         return userDAO.getUserById(id);
     }
